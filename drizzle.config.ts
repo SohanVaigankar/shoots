@@ -8,5 +8,5 @@ export default {
   dbCredentials: {
     connectionString: env.DATABASE_URL,
   },
-  tablesFilter: ["t3gallery_*"],
+  tablesFilter: ["shoots_*"],
 } satisfies Config;
