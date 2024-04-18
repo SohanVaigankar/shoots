@@ -27,3 +27,20 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+
+# T3 Gallery
+
+## TODO
+
+- [ ] Deploy
+- [ ] Scaffold basic UI (shadcn ui)
+- [ ] Set Up DB
+- [ ] Connect to DB
+- [ ] Authentication with clerk
+- [ ] Add image upload
+- [ ] error management (sentry)
+- [ ] Routing/image page (parallel route)
+- [ ] Delete Button (server action)
+- [ ] Analytics (posthog)
+- [ ] Ratelimmiting (upstash)
