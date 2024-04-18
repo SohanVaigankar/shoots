@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { db } from "~/server/db";
 
+// update the page content when any change is made to the db
+export const dynamic = "force-dynamic";
+
 const mockUrls = [
   "https://utfs.io/f/383a11fc-f7c1-49d3-96a2-ec628b2309c0-jtoka6.jpg",
   "https://utfs.io/f/c1e54cfd-f85a-4715-9b49-b3b5c2395afd-8lmoxn.jpg",
@@ -15,7 +18,6 @@ const HomePage = async () => {
   return (
     <main className="">
       <div className="flex flex-wrap gap-4">
-        
         {posts?.map((post) => <div key={post.id}>{post.name}</div>)}
 
         {[...mockImages, ...mockImages, ...mockImages].map((image, index) => (
