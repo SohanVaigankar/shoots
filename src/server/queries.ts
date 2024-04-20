@@ -1,5 +1,6 @@
 import "server-only";
 import { db } from "./db";
+import { and, eq } from "drizzle-orm";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import analyticsServerClient from "./analytics";
