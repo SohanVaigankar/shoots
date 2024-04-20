@@ -3,6 +3,7 @@ import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import analyticsServerClient from "./analytics";
+import { images } from "./db/schema";
 
 // fn to get uploaded images
 export const getImages = async () => {
@@ -41,8 +42,8 @@ export const deleteImage = async (id: number) => {
   if (!user.userId) throw new Error("Unauthorised");
 
   await db
-    .delete(image)
-    .where(and(eq(image.id, id), eq(user.userId, image.userId)));
+    .delete(images)
+    .where(and(eq(images.id, id), eq(images.userId, user.userId)));
 
   analyticsServerClient.capture({
     distinctId: user.userId,
