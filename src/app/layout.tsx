@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import TopNav from "./_components/TopNav";
 import { Toaster } from "sonner";
+import { CSPostHogProvider } from "./_analytics/provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,15 +28,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`font-sans ${inter.variable} dark`}>
-          <div className="grid-rows-[auto, 1fr] grid h-screen">
-            <TopNav />
-            <main className="overflow-y-scroll">{children}</main>
-          </div>
-          {modal}
-          <div id="modal-root" />
-          <Toaster />
-        </body>
+        <CSPostHogProvider>
+          <body className={`font-sans ${inter.variable} dark`}>
+            <div className="grid-rows-[auto, 1fr] grid h-screen">
+              <TopNav />
+              <main className="overflow-y-scroll">{children}</main>
+            </div>
+            {modal}
+            <div id="modal-root" />
+            <Toaster />
+          </body>
+        </CSPostHogProvider>
       </html>
     </ClerkProvider>
   );
