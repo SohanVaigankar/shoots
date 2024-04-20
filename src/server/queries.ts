@@ -2,6 +2,7 @@ import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import analyticsServerClient from "./analytics";
 
 // fn to get uploaded images
 export const getImages = async () => {
@@ -43,6 +44,12 @@ export const deleteImage = async (id: number) => {
     .delete(image)
     .where(and(eq(image.id, id), eq(user.userId, image.userId)));
 
-//   revalidatePath("/");
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "delete_image",
+    properties: { imageId: id },
+  });
+
+  //   revalidatePath("/");
   redirect("/");
 };
