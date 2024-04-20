@@ -11,7 +11,7 @@ import { redirect } from "next/navigation";
 export const getImages = async () => {
   const user = auth();
 
-  if (!user.userId) throw new Error("Unauthorised");
+  if (!user?.userId) throw new Error("Unauthorised");
 
   const images = await db.query.images.findMany({
     where: (model, { eq }) => eq(model.userId, user.userId),

@@ -41,6 +41,11 @@ export const UploadImageButton = () => {
       posthog.capture("upload_begin");
       toast.loading("Uploading...", { duration: 100000, id: "upload-begin" });
     },
+    onUploadError() {
+      posthog.capture("upload_error");
+      toast.dismiss("upload-begin");
+      toast.error("Failed to upload image", { duration: 5000 });
+    },
     onClientUploadComplete() {
       toast.dismiss("upload-begin");
       toast.success("Image Upload Successful");
