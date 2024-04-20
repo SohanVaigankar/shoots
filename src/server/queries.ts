@@ -5,6 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import analyticsServerClient from "./analytics";
 import { images } from "./db/schema";
+import { redirect } from "next/navigation";
 
 // fn to get uploaded images
 export const getImages = async () => {
