@@ -5,7 +5,7 @@ import Link from "next/link";
 // update the page content when any change is made to the db
 export const dynamic = "force-dynamic";
 
-const renderImages = async () => {
+const RenderImages = async () => {
   const images = await getImages();
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4">
@@ -35,7 +35,9 @@ const HomePage = async () => {
           Please sign in to access images
         </div>
       </SignedOut>
-      <SignedIn>{renderImages()}</SignedIn>
+      <SignedIn>
+        <RenderImages />
+      </SignedIn>
     </main>
   );
 };
