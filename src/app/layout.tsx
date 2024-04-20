@@ -18,15 +18,21 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`font-sans ${inter.variable} flex flex-col gap-4`}>
-          <TopNav />
-          {children}
+        <body className={`font-sans ${inter.variable}`}>
+          <div className="grid-rows-[auto, 1fr] grid h-screen">
+            <TopNav />
+            <main className="overflow-y-scroll">{children}</main>
+          </div>
+          {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </ClerkProvider>

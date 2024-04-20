@@ -1,27 +1,26 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
-import { db } from "~/server/db";
-
+import { getImages } from "~/server/queries";
+import Link from "next/link";
 // update the page content when any change is made to the db
 export const dynamic = "force-dynamic";
 
 const renderImages = async () => {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  const images = await getImages();
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap justify-center gap-4 p-4">
       {images.map((image) => (
-        <div key={image.id} className="w-48">
-          <Image
-            src={image.url}
-            alt={image.name}
-            width={0}
-            height={0}
-            // sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <p>{image.name}</p>
+        <div key={image.id} className="flex h-48 w-48 flex-col">
+          <Link href={`/img/${image.id}`}>
+            <Image
+              src={image.url}
+              alt={image.name}
+              width={480}
+              height={480}
+              style={{ objectFit: "contain" }}
+            />
+          </Link>
+          <p>{image?.name}</p>
         </div>
       ))}
     </div>

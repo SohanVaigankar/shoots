@@ -33,12 +33,13 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## TODO
 
-- [ ] Deploy
-- [ ] Scaffold basic UI (shadcn ui)
-- [ ] Set Up DB
-- [ ] Connect to DB
-- [ ] Authentication with clerk
-- [ ] Add image upload
+- [X] Deploy
+- [X] Scaffold basic UI (shadcn ui)
+- [X] Set Up DB (vercel postgres)
+- [X] Connect to DB
+- [X] Authentication with clerk
+- [X] Add image upload
+- [ ] Taint (server only)
 - [ ] error management (sentry)
 - [ ] Routing/image page (parallel route)
 - [ ] Delete Button (server action)
