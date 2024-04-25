@@ -29,7 +29,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <CSPostHogProvider>
-          <body className={`font-sans ${inter.variable} dark`}>
+          <body className={`font-sans ${inter.variable} bg-primary-foreground`}>
             <div className="h-screen overflow-y-hidden p-5">
               <TopNav />
               <main className=" mt-5 grid h-full max-h-[90%] overscroll-y-auto">

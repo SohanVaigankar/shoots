@@ -4,7 +4,7 @@ import { useUploadThing } from "~/utils/uploadthing";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { usePostHog } from "posthog-js/react";
-
+import { IoCloudUploadOutline } from "react-icons/io5";
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
 
@@ -54,12 +54,17 @@ export const UploadImageButton = () => {
   });
 
   return (
-    <div>
-      <label htmlFor="upload-button">Upload</label>
+    <div className="rounded-md bg-purple-700 px-4 py-1 text-[0.9rem] text-primary-foreground hover:cursor-pointer hover:bg-purple-800">
+      <label
+        htmlFor="upload-button"
+        className="flex items-center justify-center gap-2 hover:cursor-pointer"
+      >
+        <IoCloudUploadOutline fontSize={"1.125rem"} /> <span>Upload</span>
+      </label>
       <input
         id="upload-button"
         type="file"
-        className="sr-only"
+        className="sr-only hover:cursor-pointer"
         {...inputProps}
       />
     </div>
