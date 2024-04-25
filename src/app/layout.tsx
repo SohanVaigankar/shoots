@@ -30,9 +30,11 @@ export default function RootLayout({
       <html lang="en">
         <CSPostHogProvider>
           <body className={`font-sans ${inter.variable} dark`}>
-            <div className="grid-rows-[auto, 1fr] grid h-screen">
+            <div className="h-screen overflow-y-hidden p-5">
               <TopNav />
-              <main className="overflow-y-scroll">{children}</main>
+              <main className=" mt-5 grid h-full max-h-[90%] overscroll-y-auto">
+                {children}
+              </main>
             </div>
             {modal}
             <div id="modal-root" />
