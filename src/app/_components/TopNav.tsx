@@ -25,7 +25,9 @@ const TopNav = () => {
           </div>
         </SignedOut>
         <SignedIn>
-          <UploadImageButton />
+          <div className="hidden sm:block">
+            <UploadImageButton />
+          </div>
           <UserButton />
         </SignedIn>
       </div>

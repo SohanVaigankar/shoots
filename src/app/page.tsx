@@ -1,16 +1,20 @@
-import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
-import { getImages } from "~/server/queries";
 import Link from "next/link";
+// clerk
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
+// server queries
+import { getImages } from "~/server/queries";
+//components
+import { UploadImageButton } from "./_components/UploadImageButton";
 // update the page content when any change is made to the db
 export const dynamic = "force-dynamic";
 
 const RenderImages = async () => {
   const images = await getImages();
   return (
-    <div className="scrollbar-hide grid h-full  border-separate sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 overflow-y-auto rounded-md bg-card p-4">
+    <div className="scrollbar-hide grid h-full  border-separate gap-8 overflow-y-auto rounded-md bg-card p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
       {images?.map((image) => (
-        <div key={image.id} className="flex flex-col mx-auto">
+        <div key={image.id} className="mx-auto flex flex-col">
           <Link href={`/img/${image.id}`}>
             <Image
               src={image.url}
@@ -30,7 +34,7 @@ const RenderImages = async () => {
 
 const HomePage = async () => {
   return (
-    <main style={{ height: "calc(100vh - 7rem)" }}>
+    <main className="relative" style={{ height: "calc(100vh - 7rem)" }}>
       <SignedOut>
         <div className="flex h-full w-full flex-col items-center justify-center text-center text-2xl text-primary">
           <div className=" p-5">Please sign in to access images</div>
@@ -41,6 +45,9 @@ const HomePage = async () => {
       </SignedOut>
       <SignedIn>
         <RenderImages />
+        <div className="absolute bottom-[5%] right-5 sm:hidden">
+          <UploadImageButton />
+        </div>
       </SignedIn>
     </main>
   );
