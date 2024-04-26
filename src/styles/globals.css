@@ -90,3 +90,14 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.set-flex-direction{
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1024px){
+  .set-flex-direction{
+    flex-direction: row;
+  }
+}

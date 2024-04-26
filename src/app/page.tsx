@@ -8,9 +8,9 @@ export const dynamic = "force-dynamic";
 const RenderImages = async () => {
   const images = await getImages();
   return (
-    <div className="scrollbar-hide grid h-full  border-separate grid-cols-6 gap-8 overflow-y-auto rounded-md bg-card p-4">
-      {images.map((image) => (
-        <div key={image.id} className="flex flex-col ">
+    <div className="scrollbar-hide grid h-full  border-separate sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 overflow-y-auto rounded-md bg-card p-4">
+      {images?.map((image) => (
+        <div key={image.id} className="flex flex-col mx-auto">
           <Link href={`/img/${image.id}`}>
             <Image
               src={image.url}
@@ -32,7 +32,7 @@ const HomePage = async () => {
   return (
     <main style={{ height: "calc(100vh - 7rem)" }}>
       <SignedOut>
-        <div className="flex h-full w-full flex-col items-center justify-center text-center text-2xl">
+        <div className="flex h-full w-full flex-col items-center justify-center text-center text-2xl text-primary">
           <div className=" p-5">Please sign in to access images</div>
           <div className="rounded-md border-2 border-primary px-4 py-1 text-[1.2rem] hover:cursor-pointer  hover:bg-primary hover:text-primary-foreground">
             <SignInButton>sign in</SignInButton>
