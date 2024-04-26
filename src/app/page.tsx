@@ -45,7 +45,7 @@ const HomePage = async () => {
       </SignedOut>
       <SignedIn>
         <RenderImages />
-        <div className="absolute bottom-[5%] right-5 sm:hidden">
+        <div className="absolute bottom-[7%] right-8 sm:hidden">
           <UploadImageButton />
         </div>
       </SignedIn>
