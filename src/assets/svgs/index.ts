@@ -1,0 +1,1 @@
+export { default as ShootsLogoSVG } from "./shoots.svg";
