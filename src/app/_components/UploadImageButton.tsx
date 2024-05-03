@@ -54,7 +54,7 @@ export const UploadImageButton = () => {
   });
 
   return (
-    <div className="rounded-md bg-purple-700 px-4 py-1 text-[0.9rem] text-primary-foreground drop-shadow-sm hover:cursor-pointer hover:bg-purple-800">
+    <div className="rounded-md bg-purple-700 px-4 py-1 text-[0.9rem] text-primary-foreground drop-shadow-sm hover:cursor-pointer hover:bg-purple-800 dark:text-primary">
       <label
         htmlFor="upload-button"
         className="flex items-center justify-center gap-2 hover:cursor-pointer"

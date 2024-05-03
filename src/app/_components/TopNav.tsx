@@ -8,6 +8,7 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { UploadImageButton } from "./UploadImageButton";
 // assets
 import { ShootsLogoSVG } from "~/assets/svgs";
+import ThemeToggle from "./ThemeToggle";
 
 const TopNav = () => {
   const router = useRouter();
@@ -27,6 +28,7 @@ const TopNav = () => {
         <span>shoots</span>
       </div>
       <div className="flex flex-row items-center gap-4">
+        <ThemeToggle />
         <SignedOut>
           <div className="rounded-md border-2 border-primary px-3 py-[0.1rem] text-[0.9rem] hover:cursor-pointer  hover:bg-primary hover:text-primary-foreground">
             <SignInButton>sign in</SignInButton>
