@@ -10,8 +10,6 @@ import { Footer } from "~/components";
 // utils & static data
 import { FEATURES_DATA } from "~/utils/constants";
 
-
-
 // update the page content when any change is made to the db
 export const dynamic = "force-dynamic";
 
@@ -61,10 +59,13 @@ const HomePage = async () => {
               </SignInButton>
             </div>
           </main>
-          <section className=" rounded-md bg-background py-12">
+          <section className=" rounded-md bg-background py-12 shadow-sm">
             <div className="container mx-auto flex flex-col items-center justify-center px-8 text-center">
-              <h2 className="font-heading mb-8 text-4xl font-bold text-secondary-foreground/50">
-                Features
+              <h2 className="font-heading mb-8 text-4xl font-bold text-primary/90">
+                Upcoming{" "}
+                <span className="from-gradientStart to-gradientEnd bg-gradient-to-r bg-clip-text text-transparent">
+                  Features
+                </span>
               </h2>
               <div className="flex w-full flex-wrap justify-center">
                 {FEATURES_DATA.map((feature, index) => (
@@ -76,7 +77,9 @@ const HomePage = async () => {
                     <h3 className="text-xl font-semibold text-secondary">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-secondary/50">{feature.subtitle}</p>
+                    <p className="text-sm text-secondary/50">
+                      {feature.subtitle}
+                    </p>
                   </div>
                 ))}
               </div>

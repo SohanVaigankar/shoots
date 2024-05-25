@@ -5,17 +5,17 @@ import { MdOutlineTune } from "react-icons/md";
 export const FEATURES_DATA = [
   {
     title: "Crop Image",
-    subtitle: "Easily crop your images. (Upcoming)",
+    subtitle: "Easily crop your images.",
     icon: IoMdCrop,
   },
   {
     title: "Remove Background",
-    subtitle: "Easily remove background of you images. (Upcoming)",
+    subtitle: "Remove image background layer.",
     icon: BsLayers,
   },
   {
     title: "Tune Image",
-    subtitle: "Tune your image as you desire. (Upcoming)",
+    subtitle: "Tune your image as you desire.",
     icon: MdOutlineTune,
   },
 ];
