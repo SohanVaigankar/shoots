@@ -7,8 +7,14 @@ import { getImages } from "~/server/queries";
 //components
 import { UploadImageButton } from "./_components/UploadImageButton";
 import { Footer } from "~/components";
+// utils & static data
+import { FEATURES_DATA } from "~/utils/constants";
+
+
+
 // update the page content when any change is made to the db
 export const dynamic = "force-dynamic";
+
 const RenderImages = async () => {
   const images = await getImages();
   return (
@@ -37,7 +43,7 @@ const HomePage = async () => {
     <>
       <SignedOut>
         <main className="" style={{ height: "calc(100vh - 10%)" }}>
-          <main className="flex h-full flex-grow  items-center justify-center px-8 text-center">
+          <main className="flex h-full flex-grow  items-center justify-center px-8 text-center ">
             <div className=" flex flex-col items-center">
               <h1 className="font-heading mb-4 text-6xl font-bold leading-tight text-primary">
                 This is{" "}
@@ -45,58 +51,37 @@ const HomePage = async () => {
                   Shoots
                 </span>
               </h1>
-              <p className="mb-6 text-2xl text-secondary-foreground">
+              <p className="mb-6  text-xl text-secondary-foreground">
                 Your ultimate destination to manage and showcase your photos.
               </p>
               <SignInButton>
-                <button className="from-gradientStart to-gradientEnd transform rounded-md bg-gradient-to-r px-6 py-3 text-primary shadow-lg transition duration-300 hover:scale-105">
+                <button className="from-gradientStart to-gradientEnd transform rounded-md bg-gradient-to-r px-6 py-3 text-white shadow-lg transition duration-300 hover:scale-105">
                   Get Started
                 </button>
               </SignInButton>
             </div>
           </main>
-          {/* <section className=" bg-background py-12 rounded-md">
-            <div className="container mx-auto px-8 text-center flex justify-center flex-col items-center">
+          <section className=" rounded-md bg-background py-12">
+            <div className="container mx-auto flex flex-col items-center justify-center px-8 text-center">
               <h2 className="font-heading mb-8 text-4xl font-bold text-secondary-foreground/50">
                 Features
               </h2>
-              <div className="flex flex-wrap justify-center">
-                <div className="m-4 max-w-xs rounded-lg bg-foreground p-6 shadow-lg">
-                  <img
-                    src="/path-to-icon.svg"
-                    alt="Feature 1"
-                    className="mx-auto mb-4 h-16 w-16"
-                  />
-                  <h3 className="text-xl font-bold text-secondary">
-                    Feature 1
-                  </h3>
-                  <p className="text-gray-700">Description of feature 1.</p>
-                </div>
-                <div className="m-4 max-w-xs rounded-lg bg-foreground p-6 shadow-lg">
-                  <img
-                    src="/path-to-icon.svg"
-                    alt="Feature 2"
-                    className="mx-auto mb-4 h-16 w-16"
-                  />
-                  <h3 className="text-xl font-bold text-secondary">
-                    Feature 2
-                  </h3>
-                  <p className="text-gray-700">Description of feature 2.</p>
-                </div>
-                <div className="m-4 max-w-xs rounded-lg bg-foreground p-6 shadow-lg">
-                  <img
-                    src="/path-to-icon.svg"
-                    alt="Feature 3"
-                    className="mx-auto mb-4 h-16 w-16"
-                  />
-                  <h3 className="text-xl font-bold text-secondary">
-                    Feature 3
-                  </h3>
-                  <p className="text-gray-700">Description of feature 3.</p>
-                </div>
+              <div className="flex w-full flex-wrap justify-center">
+                {FEATURES_DATA.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="m-4 max-w-xs rounded-lg bg-primary p-6 shadow-lg"
+                  >
+                    <feature.icon className="mx-auto mb-4 text-[2.5rem] text-secondary sm:text-[3rem] lg:text-[4rem]" />
+                    <h3 className="text-xl font-semibold text-secondary">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-secondary/50">{feature.subtitle}</p>
+                  </div>
+                ))}
               </div>
             </div>
-          </section> */}
+          </section>
 
           <Footer />
         </main>

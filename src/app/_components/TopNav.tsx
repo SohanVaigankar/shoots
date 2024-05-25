@@ -32,8 +32,8 @@ const TopNav = () => {
         <SignedOut>
           <div
             className="
-          from-gradientStart  to-gradientEnd rounded-md bg-gradient-to-r px-3  
-          py-[0.25rem] text-[0.9rem] hover:cursor-pointer"
+          from-gradientStart  to-gradientEnd rounded-md text-white bg-gradient-to-r px-3  
+          py-[0.25rem] text-[0.9rem] hover:cursor-pointer shadow-md"
           >
             <SignInButton>Get Started</SignInButton>
           </div>

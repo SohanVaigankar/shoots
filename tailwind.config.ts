@@ -24,8 +24,8 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        gradientStart: '#ff7e5f',
-        gradientEnd: '#feb47b',
+        gradientStart: '#4790AB',
+        gradientEnd: '#ADD6AD',
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

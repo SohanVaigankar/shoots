@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import TopNav from "./_components/TopNav";
 import { Toaster } from "sonner";
@@ -10,7 +10,7 @@ import { ThemeProvider } from "~/context";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata = {
@@ -28,9 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning className={inter.className}>
         <CSPostHogProvider>
-          <body className={`font-sans ${inter.variable} bg-primary-foreground`}>
+          <body className={` bg-primary-foreground`}>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -42,9 +42,7 @@ export default function RootLayout({
                 p-2 lg:p-5"
               >
                 <TopNav />
-                <main className="  h-full max-h-[90%] ">
-                  {children}
-                </main>
+                <main className="  h-full max-h-[90%] ">{children}</main>
               </div>
               {modal}
               <div id="modal-root" />
