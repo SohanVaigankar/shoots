@@ -53,7 +53,7 @@ const HomePage = async () => {
                 Your ultimate destination to manage and showcase your photos.
               </p>
               <SignInButton>
-                <button className="from-gradientStart to-gradientEnd transform rounded-md bg-gradient-to-r px-6 py-3 text-white shadow-lg transition duration-300 hover:scale-105">
+                <button className="from-gradientStart  to-gradientEnd transform rounded-md bg-gradient-to-r px-6 py-3 text-white shadow-lg transition duration-300 hover:scale-105 hover:bg-gradient-to-l hover:ease-in-out gradient-hover-effect" >
                   Get Started
                 </button>
               </SignInButton>

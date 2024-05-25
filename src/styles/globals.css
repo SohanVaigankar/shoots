@@ -101,3 +101,11 @@
     flex-direction: row;
   }
 }
+
+.gradient-hover-effect{
+  transition: 0.5s ;
+  background-size: 200% auto ;
+}
+.gradient-hover-effect:hover{
+background-position: right center ;
+}
