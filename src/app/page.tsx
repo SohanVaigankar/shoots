@@ -43,13 +43,13 @@ const HomePage = async () => {
         <main className="" style={{ height: "calc(100vh - 10%)" }}>
           <main className="flex h-full flex-grow  items-center justify-center px-8 text-center ">
             <div className=" flex flex-col items-center">
-              <h1 className="font-heading mb-4 text-6xl font-bold leading-tight text-primary">
+              <h1 className="font-heading mb-4 text-4xl font-bold leading-tight text-primary md:text-5xl lg:text-6xl">
                 This is{" "}
-                <span className="from-gradientStart to-gradientEnd bg-gradient-to-r bg-clip-text text-transparent">
+                <span className="from-gradientStart to-gradientEnd bg-gradient-to-r bg-clip-text text-transparent ">
                   Shoots
                 </span>
               </h1>
-              <p className="mb-6  text-xl text-secondary-foreground">
+              <p className="mb-6 text-lg text-secondary-foreground lg:text-xl">
                 Your ultimate destination to manage and showcase your photos.
               </p>
               <SignInButton>
@@ -71,7 +71,7 @@ const HomePage = async () => {
                 {FEATURES_DATA.map((feature, index) => (
                   <div
                     key={index}
-                    className="m-4 max-w-xs rounded-lg bg-primary p-6 shadow-lg"
+                    className="m-4 w-[100%] rounded-lg  bg-primary p-6 shadow-lg sm:w-[320px]"
                   >
                     <feature.icon className="mx-auto mb-4 text-[2.5rem] text-secondary sm:text-[3rem] lg:text-[4rem]" />
                     <h3 className="text-xl font-semibold text-secondary">
@@ -92,7 +92,7 @@ const HomePage = async () => {
 
       <SignedIn>
         <main
-          className="relative mt-5  overflow-y-hidden"
+          className="relative mt-4  overflow-y-hidden"
           style={{ height: "calc(100vh - 8rem)" }}
         >
           <RenderImages />

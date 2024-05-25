@@ -37,13 +37,10 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <div
-                className="h-screen 
-                p-2 lg:p-5"
-              >
-                <TopNav />
-                <main className="  h-full max-h-[90%] ">{children}</main>
-              </div>
+              <TopNav />
+              <main className="h-screen max-h-[90vh]  px-2 pb-2 lg:px-5 lg:pb-5">
+                {children}
+              </main>
               {modal}
               <div id="modal-root" />
               <Toaster />
