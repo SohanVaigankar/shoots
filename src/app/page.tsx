@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
+// import Image from "next/image";
+// import Link from "next/link";
 // clerk
 import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 // server queries
 import { getImages } from "~/server/queries";
 //components
 import { UploadImageButton } from "./_components/UploadImageButton";
-import { Footer } from "~/components";
+import { Footer, ImageGrid } from "~/components";
 // utils & static data
 import { FEATURES_DATA } from "~/utils/constants";
 
@@ -16,23 +16,26 @@ export const dynamic = "force-dynamic";
 const RenderImages = async () => {
   const images = await getImages();
   return (
-    <div className="scrollbar-hide grid h-full  border-separate gap-8 overflow-y-auto rounded-md bg-card p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-      {images?.map((image) => (
-        <div key={image.id} className="mx-auto flex flex-col">
-          <Link href={`/img/${image.id}`}>
-            <Image
-              src={image.url}
-              alt={image.name}
-              width={480}
-              height={900}
-              style={{ objectFit: "contain" }}
-              className="rounded-sm shadow-sm hover:scale-[1.015] hover:cursor-pointer  hover:shadow-md"
-            />
-          </Link>
-          <p className="p-1 text-center text-[0.8rem]">{image?.name}</p>
-        </div>
-      ))}
-    </div>
+    // Normal Grid
+    // <div className="scrollbar-hide grid h-full  border-separate gap-8 overflow-y-auto rounded-md bg-card p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+    //   {images?.map((image) => (
+    //     <div key={image.id} className="mx-auto flex flex-col">
+    //       <Link href={`/img/${image.id}`}>
+    //         <Image
+    //           src={image.url}
+    //           alt={image.name}
+    //           width={480}
+    //           height={900}
+    //           style={{ objectFit: "contain" }}
+    //           className="rounded-sm shadow-sm hover:scale-[1.015] hover:cursor-pointer  hover:shadow-md"
+    //         />
+    //       </Link>
+    //       <p className="p-1 text-center text-[0.8rem]">{image?.name}</p>
+    //     </div>
+    //   ))}
+    // </div>
+    // Masonary Grid
+    <ImageGrid items={images} />
   );
 };
 
@@ -53,7 +56,7 @@ const HomePage = async () => {
                 Your ultimate destination to manage and showcase your photos.
               </p>
               <SignInButton>
-                <button className="from-gradientStart  to-gradientEnd transform rounded-md bg-gradient-to-r px-6 py-3 text-white shadow-lg transition duration-300 hover:scale-105 hover:bg-gradient-to-l hover:ease-in-out gradient-hover-effect" >
+                <button className="from-gradientStart  to-gradientEnd gradient-hover-effect transform rounded-md bg-gradient-to-r px-6 py-3 text-white shadow-lg transition duration-300 hover:scale-105 hover:bg-gradient-to-l hover:ease-in-out">
                   Get Started
                 </button>
               </SignInButton>
