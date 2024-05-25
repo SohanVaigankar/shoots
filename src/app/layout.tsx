@@ -37,9 +37,12 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
-              <div className="h-screen overflow-y-hidden  p-2 lg:p-5">
+              <div
+                className="h-screen 
+                p-2 lg:p-5"
+              >
                 <TopNav />
-                <main className=" mt-5 grid h-full max-h-[90%] overscroll-y-auto">
+                <main className="  h-full max-h-[90%] ">
                   {children}
                 </main>
               </div>
