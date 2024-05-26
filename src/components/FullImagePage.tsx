@@ -1,7 +1,12 @@
 import { clerkClient } from "@clerk/nextjs/server";
+// server action queries
 import { deleteImage, getImage } from "~/server/queries";
+// components
 import { Button } from "./ui/button";
+import FullImage from "./FullImage/FullImage";
+// icons
 import { MdDeleteOutline } from "react-icons/md";
+
 const FullPageImageView = async (props: { id: number }) => {
   const { id } = props;
 
@@ -13,13 +18,7 @@ const FullPageImageView = async (props: { id: number }) => {
   const uploaderData = await clerkClient.users.getUser(image.userId);
   return (
     <div className=" set-flex-direction flex h-full   w-full min-w-0  gap-2 overflow-y-auto  p-2 md:gap-3 lg:overflow-y-hidden">
-      <div className="flex w-full  items-center justify-center rounded-md bg-card shadow-sm ">
-        <img
-          alt={image.name}
-          src={image.url}
-          className="w-96 flex-shrink object-contain shadow-md"
-        />
-      </div>
+      <FullImage name={image.name} url={image.url} />
       <div className="md:text-md rounded-md bg-card p-2 text-center text-sm shadow-sm lg:hidden">
         {image.name}
       </div>
