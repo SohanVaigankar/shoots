@@ -11,6 +11,14 @@ const ErrorBoundary = (props: ErrorBoundaryProps) => {
   const { error } = props;
   const router = useRouter();
 
+  if (!ERROR_TYPE[error?.message]) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center">
+        <div>Oops! Something went wrong</div>
+      </div>
+    );
+  }
+
   if (ERROR_TYPE.UNAUTHORIZED === ERROR_TYPE[error.message]) {
     setTimeout(() => {
       router.push("/");

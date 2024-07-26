@@ -30,7 +30,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning className={inter.className}>
         <CSPostHogProvider>
-          <body className={` bg-primary-foreground`}>
+          <body className={`bg-primary-foreground`}>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -38,11 +38,11 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <TopNav />
-              <main className="h-screen max-h-[90vh]  px-2 pb-2 lg:px-5 lg:pb-5">
+              <main className="h-screen  max-h-[90vh] px-2 pb-2 lg:px-5 lg:pb-5">
                 {children}
               </main>
-              {modal}
-              <div id="modal-root" />
+
+              <div id="modal-root">{modal}</div>
               <Toaster />
             </ThemeProvider>
           </body>
